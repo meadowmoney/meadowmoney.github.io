@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.meadowmoney.app",
+        "sha256_cert_fingerprints": ["C2:F7:9B:BB:28:23:0B:AA:44:93:E9:05:74:E8:82:A9:B3:2E:7D:4D:7A:D5:8C:AD:51:42:8F:98:60:8A:FD:EF"]
+      }
+    }]
