@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>(function(){if(location.hash!=='#receive'||!window.opener)return;const OLD='https://naekitakadoportfolio.github.io';
+addEventListener('message',async e=>{if(e.origin!==OLD||!e.data||!e.data.mmMove)return;const d=e.data;
+ try{Object.entries(d.ls||{}).forEach(([k,v])=>{if(localStorage.getItem(k)===null)localStorage.setItem(k,v)});}catch(x){}
+ for(const s of d.idb||[]){try{await new Promise((res,rej)=>{const r=indexedDB.open(s.db,s.ver||1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains(s.store))r.result.createObjectStore(s.store,{keyPath:s.keyPath})};
+   r.onerror=rej;r.onsuccess=()=>{const db=r.result,tx=db.transaction(s.store,'readwrite');s.records.forEach(x=>tx.objectStore(s.store).put(x));tx.oncomplete=()=>{db.close();res()};tx.onerror=rej;};});}catch(x){}}
+ try{e.source.postMessage({mmMoved:1},OLD)}catch(x){}
+ location.replace(location.pathname);location.reload();});})();</script>
+
 <meta charset="utf-8">
 <script>try{var th=localStorage.getItem("mm_theme");if(th==="light"||th==="dark")document.documentElement.setAttribute("data-theme",th);}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
